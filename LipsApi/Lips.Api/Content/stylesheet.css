@@ -1,0 +1,46 @@
+﻿@media only screen and (max-width: 768px) {
+    * {
+        text-align: center;
+        font-size: 10px;
+    }
+
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
+
+    img {
+        margin-top: 15%;
+        margin-bottom: 5%;
+        max-width: 90%;
+        min-width: 50%
+    }
+
+    .paragraph {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 18px;
+        color: #666666;
+        margin-top: 5%;
+        margin-bottom: 15%;
+    }
+
+    .header_lips {
+        line-height: 22px;
+        font-size: 20px;
+        font-weight: 900;
+    }
+
+    input[type="submit"], a {
+        background-color: #844C9C;
+        color: white;
+        border-width: 0px;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 10px 25px 10px 25px;
+        border-radius: 25px;
+        -webkit-box-shadow: -1px 5px 3px -4px rgba(0,0,0,0.32);
+        -moz-box-shadow: -1px 5px 3px -4px rgba(0,0,0,0.32);
+        box-shadow: -1px 5px 3px -4px rgba(0,0,0,0.32);
+    }
+}

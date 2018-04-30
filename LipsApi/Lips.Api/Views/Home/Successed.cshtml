@@ -1,0 +1,32 @@
+﻿<br />
+<img src=@Url.Content("~/Content/success.svg")></img>
+<br />
+<br />
+<p class="header_lips">Your payment has been <br /> succesfully processed</p>
+<p class="paragraph">Thank you, we have received your <br /> payment. You can now return to the <br /> application.</p>
+
+<div id="app_open">
+    <a href="wasapplogin://rejected">Back to WasApp</a>
+</div>
+
+
+<script type="text/javascript">
+
+    (function () {
+        var redirect = false
+        if (navigator.userAgent.match(/iPhone/i)) {
+            document.getElementById("app_open").innerHTML = ' <form action="wasapp://success" id="form" target="_blank"><input type= "submit" value= "Back to WasApp" /></form >'
+
+          //  redirect = true
+        }
+        var isAndroid = /(android)/i.test(navigator.userAgent)
+        var isMobile = /(mobile)/i.test(navigator.userAgent)
+        if (isAndroid && isMobile) {
+            document.getElementById("app_open").innerHTML = '<a href="wasapplogin://">Back to WasApp</a>'
+
+            //  redirect = true
+        }
+     
+    })()
+
+</script>

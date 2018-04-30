@@ -1,0 +1,35 @@
+﻿
+
+<br />
+<img src=@Url.Content("~/Content/aborted.svg")></img>
+<br />
+<br />
+<p class="header_lips">The payment has been <br /> canceled by the user.</p>
+<p class="paragraph">Unfortunately, we did not received <br /> your payment. The transaction has <br /> been canceled.</p>
+
+
+
+<div id="app_open">
+   
+</div>
+
+<script type="text/javascript">
+
+    (function () {
+        var redirect = false
+        if (navigator.userAgent.match(/iPhone/i)) {
+            document.getElementById("app_open").innerHTML = ' <form action="wasapp://cancelled" id="form" target="_blank"><input type= "submit" value= "Back to WasApp" /></form >'
+
+          //  redirect = true
+        }
+        var isAndroid = /(android)/i.test(navigator.userAgent)
+        var isMobile = /(mobile)/i.test(navigator.userAgent)
+        if (isAndroid && isMobile) {
+            document.getElementById("app_open").innerHTML = '<a href="wasappregister://cancelled">Back to WasApp</a>'
+
+            //  redirect = true
+        }
+
+    })()
+
+</script>

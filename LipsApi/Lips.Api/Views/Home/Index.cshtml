@@ -1,0 +1,16 @@
+﻿
+
+<div id="test">
+
+</div>
+<script type="text/javascript">
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+    if (isAndroid) {
+        // Do something!
+        // Redirect to Android-site?
+        document.getElementById("test").innerHTML = "ANDROID OPEN LASER LASER LASER LESER";
+    }
+    document.getElementById("test").innerHTML = ua
+
+</script>

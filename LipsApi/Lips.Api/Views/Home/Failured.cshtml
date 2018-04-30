@@ -1,0 +1,32 @@
+﻿<br />
+<img src=@Url.Content("~/Content/failed.svg")></img>
+<br />
+<br />
+<p class="header_lips">The payment was <br /> unsuccessful</p>
+<p class="paragraph">Unfortunately, we did not received <br /> your payment. The transaction <br />failed</p>
+
+
+<div id="app_open">
+
+</div>
+
+<script type="text/javascript">
+
+    (function () {
+        var redirect = false
+        if (navigator.userAgent.match(/iPhone/i)) {
+            document.getElementById("app_open").innerHTML = ' <form action="wasapp://failed" id="form" target="_blank"><input type= "submit" value= "Back to WasApp" /></form >'
+
+          //  redirect = true
+        }
+        var isAndroid = /(android)/i.test(navigator.userAgent)
+        var isMobile = /(mobile)/i.test(navigator.userAgent)
+        if (isAndroid && isMobile) {
+            document.getElementById("app_open").innerHTML = '<a href="wasappregister://failed">Back to WasApp</a>'
+
+            //  redirect = true
+        }
+
+    })()
+
+</script>

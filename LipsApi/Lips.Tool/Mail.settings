@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Lips.Tool" GeneratedClassName="Mail">
+  <Profiles />
+  <Settings>
+    <Setting Name="Email" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">wasapp@siennsoft.com</Value>
+    </Setting>
+    <Setting Name="PasswordMail" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">liLNJ7fABBz5F76BVU6o</Value>
+    </Setting>
+    <Setting Name="Portno" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">587</Value>
+    </Setting>
+    <Setting Name="SmtpServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">smtp.iq.pl</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
