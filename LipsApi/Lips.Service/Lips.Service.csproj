@@ -66,6 +66,8 @@
     <Compile Include="Clothes\IClothesTrackingService.cs" />
     <Compile Include="Clothes\IOrderClotheService.cs" />
     <Compile Include="Clothes\OrderClotheService.cs" />
+    <Compile Include="Import\IImportService.cs" />
+    <Compile Include="Import\ImportService.cs" />
     <Compile Include="Orders\IInvoiceService.cs" />
     <Compile Include="Orders\InvoiceService.cs" />
     <Compile Include="Orders\IOrderService.cs" />

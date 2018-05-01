@@ -61,6 +61,7 @@
     <Compile Include="Clothes\IClothesTrackingRepository.cs" />
     <Compile Include="Clothes\IOrderClotheRepository.cs" />
     <Compile Include="Clothes\OrderClotheRepository.cs" />
+    <Compile Include="Import\ImportRepository.cs" />
     <Compile Include="Orders\IInvoiceRepository.cs" />
     <Compile Include="Orders\InvoiceRepository.cs" />
     <Compile Include="Orders\IOrderRepository.cs" />

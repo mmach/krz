@@ -10,5 +10,6 @@ namespace Lips.Repository.Users
     public interface IUserRepository : IBaseRepository<User>
     {
         User GetUserDetail(long userid);
+
     }
 }
