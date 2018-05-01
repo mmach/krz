@@ -59,6 +59,7 @@ namespace Lips.Repository.Import
             catch (Exception ex)
             {
                 tran.Rollback();
+                throw ex;
             }
             finally {
                 connection.Close();
@@ -83,6 +84,7 @@ namespace Lips.Repository.Import
             catch (Exception ex)
             {
                 tran.Rollback();
+                throw ex;
             }
             finally
             {
@@ -106,6 +108,7 @@ namespace Lips.Repository.Import
             catch (Exception ex)
             {
                 tran.Rollback();
+                throw ex;
             }
             finally
             {
