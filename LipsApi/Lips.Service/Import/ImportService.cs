@@ -40,7 +40,16 @@ namespace Lips.Service.Import
             }
 
             DBImport(results);
-            
+            Delete(results);
+        }
+
+
+        private void Delete(List<string> files)
+        {
+            foreach (var file in files)
+            {
+                File.Delete(Path.Combine(DownloadPath, file));
+            }
         }
 
         private void DBImport(List<string> files)

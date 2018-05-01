@@ -101,7 +101,7 @@ namespace Lips.Repository.Import
             {
 
                 SqlCommand cmd = new SqlCommand("DELETE FROM " + tableName, connection, tran);
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
                 tran.Commit();
             }
