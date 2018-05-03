@@ -1,4 +1,6 @@
-﻿using Lips.Api.App_Start;
+﻿using FluentScheduler;
+using Lips.Api.App_Start;
+using Lips.Api.ScheduledJobs;
 using Lips.Dto.Users;
 using Lips.Infrastructure.Automaps;
 using System;
@@ -23,6 +25,7 @@ namespace Lips.Api
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             AutoMapping.Register();
+            JobManager.Initialize(new MyRegistry());
         }
     }
 }
