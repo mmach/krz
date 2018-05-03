@@ -15,9 +15,7 @@ namespace Lips.Api.ScheduledJobs
         public void Execute()
         {
             try
-            {
-                throw new Exception("AAAA");
-
+            {               
                 IImportService ImportService = new ImportService(
                    ConfigurationManager.ConnectionStrings["BaseContext"].ConnectionString,
                     ConfigurationManager.AppSettings["ftpAddress"],
