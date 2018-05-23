@@ -57,28 +57,41 @@ namespace Lips.Service.Import
             CSVParser parser = new CSVParser();
             foreach (var file in files)
             {
+
                 var headers = parser.GetHeaders(Path.Combine(DownloadPath, file), CsvSeparator);
                 var data = parser.GetData(Path.Combine(DownloadPath, file), CsvSeparator);
 
                 string datePattern = "20[0-9]*.CSV";
                 var datePart = Regex.Match(file, datePattern).Value;
                 var tableName = file.Replace(datePart, string.Empty);
+                ImportRepository.CleanTable(tableName);
                 ImportRepository.SaveData(headers, data, tableName);
             }
             ImportRepository.MergeData();
 
-            foreach (var file in files)
+         /*   foreach (var file in files)
             {
                 string datePattern = "20[0-9]*.CSV";
                 var datePart = Regex.Match(file, datePattern).Value;
                 var tableName = file.Replace(datePart, string.Empty);
                 ImportRepository.CleanTable(tableName);
-            }
+            }*/
         }
 
 
         #region FTP DOWNLOAD
+        public byte[] GetInvoice(long Id)
+        {
+            string ftphost = FtpAddress;
+            string ftpfullpath = "ftp://" + ftphost + "/Invoice_" + Id + ".pdf";
+            using (WebClient request = new WebClient())
+            {
+                request.Credentials = new NetworkCredential(Login, Password);
+                byte[] fileData = request.DownloadData(ftpfullpath);
+                return fileData;
 
+            }
+        }
         private void Download(string fileName)
         {
 

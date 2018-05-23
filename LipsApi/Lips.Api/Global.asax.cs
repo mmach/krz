@@ -3,9 +3,11 @@ using Lips.Api.App_Start;
 using Lips.Api.ScheduledJobs;
 using Lips.Dto.Users;
 using Lips.Infrastructure.Automaps;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
 using System.Web.Optimization;
@@ -24,7 +26,19 @@ namespace Lips.Api
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            AutoMapping.Register();
+            var jsonSerializerSettings = new JsonSerializerSettings
+            {
+                PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+                MaxDepth=1,
+                Formatting=Formatting.Indented
+            };
+
+            GlobalConfiguration.Configuration.Formatters.Clear();
+            GlobalConfiguration.Configuration.Formatters.Add(  new JsonMediaTypeFormatter());
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings = jsonSerializerSettings;
+
+            AutoMapper.Mapper.Initialize(cfg=> { AutoMapping.Register(cfg); });
             JobManager.Initialize(new MyRegistry());
         }
     }

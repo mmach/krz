@@ -9,6 +9,7 @@ namespace Lips.Domain.Clothes
     public enum ClothesTrackingEnum
     {
         New =1 ,
-        Completed = 2
+        Completed = 2,
+        Delivered = 3
     }
 }

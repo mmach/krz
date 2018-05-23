@@ -9,6 +9,7 @@ namespace Lips.Dto.Orders
     public  enum OrdersTrackingEnumDto
     {
         New = 1,
-        Completed = 2
+        Completed = 2,
+        Delivered = 3
     }
 }

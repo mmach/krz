@@ -1,7 +1,9 @@
 ﻿
 
+using AutoMapper;
 using Lips.Domain.Bases;
 using Lips.Dto.Bases;
+using Lips.Infrastructure.Automaps;
 using Lips.Repository;
 using Lips.Service.Bases;
 using System;
@@ -15,7 +17,7 @@ namespace Lips.Infrastructure.Bootstrappers
 {
     public static class Bootstrapper
     {
-        public static object AutoMapping { get; set; }
+    //    public static object AutoMapping { get; set; }
         public static UnityContainer container { set; get; }
 
         public static void Register(HttpConfiguration config)
@@ -30,6 +32,8 @@ namespace Lips.Infrastructure.Bootstrappers
 
             foreach (var dependency in servicesDependencies)
                 container.RegisterType(dependency.Key, dependency.Value);
+
+      //      container.RegisterInstance(typeof(IMapper),AutoMapping.Register());
 
             config.DependencyResolver = new UnityDependencyResolver(container);
             //return UnityContainer;

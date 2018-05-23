@@ -14,23 +14,33 @@ namespace Lips.Infrastructure.Automaps
     public static class AutoMapping
     {
         public const string DtoPostfix = "Dto";
-      
-        public static void Register()
+        public  static IMapper QueryConfig=null;
+  
+        public static IMapperConfigurationExpression Register(IMapperConfigurationExpression cfg)
         {
             var maps = DefaultMap(typeof(Base), typeof(BaseDto));
-            foreach (var map in maps)
-            {
-                RegisterTwoWaysMaps(map.Key, map.Value);
-            }
-            RegisterTwoWaysMaps(typeof(UserAuthDto), typeof(User));
+          
+            
+                foreach (var map in maps)
+                {
+                    RegisterTwoWaysMaps(map.Key, map.Value, cfg);
+                }
+                RegisterTwoWaysMaps(typeof(UserAuthDto), typeof(User), cfg);
+            
+           // QueryConfig = config);
+            return cfg;
         }
 
-        private static void RegisterTwoWaysMaps(Type first, Type second)
+        private static void RegisterTwoWaysMaps(Type first, Type second, IMapperConfigurationExpression cfg)
         {
-            Mapper.CreateMap(first, second);
-            Mapper.CreateMap(second, first);
-            Mapper.CreateMap(first, first);
-            Mapper.CreateMap(second, second);
+           
+            
+                cfg.CreateMap(first, second).MaxDepth(1);
+                cfg.CreateMap(second, first).MaxDepth(1); ;
+                cfg.CreateMap(first, first).MaxDepth(1); ;
+                cfg.CreateMap(second, second).MaxDepth(1); ;
+           
+           
         }
 
 

@@ -11,6 +11,7 @@ namespace Lips.Domain.Users
     {
         public string Address { get; set; }
         public long ExternalId { get; set; }
+        public string Name { set; get; }
         public bool Mo { get; set; }
         public bool Tu { get; set; }
         public bool We { get; set; }

@@ -9,6 +9,7 @@ namespace Lips.Dto.Clothes
     public enum ClothesTrackingEnumDto
     {
         New = 1,
-        Completed = 2
+        Completed = 2,
+        Delivered = 3
     }
 }

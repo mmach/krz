@@ -9,7 +9,8 @@ namespace Lips.Domain.Orders
     public  enum OrdersTrackingEnum
     {
         New = 1,
-        Completed = 2
+        Completed = 2,
+        Delivered = 3
         
     }
 }

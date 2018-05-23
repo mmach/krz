@@ -8,7 +8,7 @@ namespace Lips.Service.Import
 {
     public interface IImportService
     {
-
+        byte[] GetInvoice(long Id);
         void ImportFiles();
     }
 }

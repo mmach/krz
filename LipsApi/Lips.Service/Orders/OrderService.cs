@@ -11,6 +11,7 @@ using Lips.Repository.Orders;
 using Lips.Service.Clothes;
 using Lips.Dto.Clothes;
 using Lips.Domain.Clothes;
+using AutoMapper;
 
 namespace Lips.Service.Orders
 {
@@ -21,7 +22,7 @@ namespace Lips.Service.Orders
         public IOrderClotheService OrderClotheService { set; get; }
         public OrderService(IBaseRepository<Order> repository, IOrdersTrackingService OrdersTrackingService, IClothesTrackingService clotheTrackingService, IOrderClotheService orderClotheService) : base(repository)
         {
-            this.OrderClotheService = orderClotheService;
+           this.OrderClotheService = orderClotheService;
             this.OrdersTrackingService = OrdersTrackingService;
             this.ClotheTrackingService = clotheTrackingService;
         }
@@ -29,11 +30,11 @@ namespace Lips.Service.Orders
         public List<OrderDto> GetByUserId(long id, int page, int size)
         {
             var resultEntity = GetRepository<OrderRepository>().GetByUserId(id, page, size);
-          
+            var result = AutoMapper.Mapper.Map<List<OrderDto>>(resultEntity);
 
-            foreach (var item in resultEntity)
+            foreach (var item in result)
             {
-                List<ClothesTracking> cTracking = new List<ClothesTracking>();
+                List<ClothesTrackingDto> cTracking = new List<ClothesTrackingDto>();
                 List<long> uniqueIds = new List<long>();
 
                 for (int i = item.ClothesTracking.Count - 1; i >= 0; i--)
@@ -48,7 +49,7 @@ namespace Lips.Service.Orders
                 item.ClothesTracking = cTracking;
             }
 
-            var  result = AutoMapper.Mapper.Map<List<OrderDto>>(resultEntity);
+           // var  result = AutoMapper.Mapper.Map<List<OrderDto>>(resultEntity);
      
             return result;       
         }
