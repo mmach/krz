@@ -35,10 +35,10 @@ namespace Lips.Infrastructure.Automaps
         {
            
             
-                cfg.CreateMap(first, second).MaxDepth(1);
-                cfg.CreateMap(second, first).MaxDepth(1); ;
-                cfg.CreateMap(first, first).MaxDepth(1); ;
-                cfg.CreateMap(second, second).MaxDepth(1); ;
+                cfg.CreateMap(first, second).MaxDepth(1).PreserveReferences();
+                cfg.CreateMap(second, first).MaxDepth(1).PreserveReferences(); ;
+                cfg.CreateMap(first, first).MaxDepth(1).PreserveReferences(); ;
+                cfg.CreateMap(second, second).MaxDepth(1).PreserveReferences(); ;
            
            
         }

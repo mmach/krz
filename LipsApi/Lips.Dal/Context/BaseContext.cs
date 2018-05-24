@@ -42,6 +42,7 @@ namespace Lips.Dal.Context
 
         private void SetConfiguration()
         {
+            
             Configuration.LazyLoadingEnabled = false;
             Configuration.ValidateOnSaveEnabled = false;
             Configuration.ProxyCreationEnabled = false;
